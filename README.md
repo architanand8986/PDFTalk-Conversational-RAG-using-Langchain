@@ -17,7 +17,7 @@ This repository implements a **Conversational Retrieval-Augmented Generation (RA
 
 ### **1. Clone the repository**  
 ```bash
-git clone https://github.com/architanand8986/Conversational-RAG-with-PDF-uploads.git
+[git clone https://github.com/architanand8986/Conversational-RAG-with-PDF-uploads.git](https://github.com/architanand8986/Conversational-RAG-with-PDF-uploads.git)
 ```
 
 ### **2. Navigate to the project directory**  

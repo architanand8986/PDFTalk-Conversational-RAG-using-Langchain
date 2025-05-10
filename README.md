@@ -73,11 +73,6 @@ streamlit run app.py
 
 ---
 
-## **License**
-This project is licensed under the **MIT License**.
-
----
-
 ## **Contributing**
 Contributions are welcome! Feel free to open issues and pull requests.
 

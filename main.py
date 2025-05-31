@@ -1,5 +1,9 @@
 ## RAG Q&A Conversation With PDF Including Chat History
 import streamlit as st
+import sys
+import pysqlite3
+
+sys.modules["sqlite3"] = pysqlite3
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma

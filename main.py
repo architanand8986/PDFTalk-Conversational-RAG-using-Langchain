@@ -64,7 +64,7 @@ if api_key:
             vectorstore = Chroma.from_documents(splits, embedding=embeddings, persist_directory="./chroma_db")
             retriever = vectorstore.as_retriever()
 
-        llm = ChatGroq(groq_api_key=api_key, model_name="Gemma2-9b-It")
+        llm = ChatGroq(groq_api_key=api_key, model_name="meta-llama/llama-4-scout-17b-16e-instruct")
 
         # -------- PROMPTS & CHAINS --------
         contextualize_q_prompt = ChatPromptTemplate.from_messages([

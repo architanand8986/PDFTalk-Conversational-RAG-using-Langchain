@@ -123,18 +123,39 @@ if api_key:
             output_messages_key="answer"
         )
 
-        user_input = st.text_input("Your question:")
-        if user_input:
-            session_history=get_session_history(session_id)
-            response = conversational_rag_chain.invoke(
-                {"input": user_input},
-                config={
-                    "configurable": {"session_id":session_id}
-                },  # constructs a key "abc123" in `store`.
-            )
-            # st.write(st.session_state.store)
-            st.write("Assistant:", response['answer'])
-            # st.write("Chat History:", session_history.messages)
+        with st.container():
+            st.subheader("💬 Chat with your PDFs")
+        
+            if "messages" not in st.session_state:
+                st.session_state.messages = []
+        
+            # Display chat history
+            for message in st.session_state.messages:
+                with st.chat_message(message["role"]):
+                    st.markdown(message["content"])
+        
+            user_input = st.chat_input("Ask a question about the PDF...")
+        
+            if user_input:
+                session_history = get_session_history(session_id)
+        
+                # Append user message to UI history
+                st.session_state.messages.append({"role": "user", "content": user_input})
+                with st.chat_message("user"):
+                    st.markdown(user_input)
+        
+                # Run the conversational RAG chain
+                response = conversational_rag_chain.invoke(
+                    {"input": user_input},
+                    config={"configurable": {"session_id": session_id}},
+                )
+        
+                # Append assistant response to UI history
+                answer = response['answer']
+                st.session_state.messages.append({"role": "assistant", "content": answer})
+                with st.chat_message("assistant"):
+                    st.markdown(answer)
+
 else:
     st.warning("Please enter the GRoq API Key")
 

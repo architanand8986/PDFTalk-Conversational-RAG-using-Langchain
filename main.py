@@ -31,24 +31,24 @@ os.environ["HF_TOKEN"] = hf_token
 # Embedding Model
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-# -------- SIDEBAR --------
+# SIDEBAR 
 st.sidebar.title("🔐 Configuration")
 api_key = st.sidebar.text_input("Enter your Groq API key:", type="password")
 session_id = st.sidebar.text_input("Session ID", value="default_session")
 st.sidebar.markdown("---")
 uploaded_files = st.sidebar.file_uploader("📄 Upload PDF(s)", type="pdf", accept_multiple_files=True)
 
-# -------- MAIN TITLE --------
+# MAIN TITLE
 st.title("📚 Chat with your PDFs")
 st.caption("Ask questions, retrieve answers, and preserve chat history with Conversational RAG.")
 
-# -------- SESSION MANAGEMENT --------
+# SESSION MANAGEMENT
 if "store" not in st.session_state:
     st.session_state.store = {}
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# --------- MAIN FUNCTIONALITY ---------
+# MAIN FUNCTIONALITY
 if api_key:
     if uploaded_files:
         with st.spinner("Processing uploaded PDFs..."):
@@ -95,7 +95,7 @@ if api_key:
             output_messages_key="answer"
         )
 
-        # -------- CHAT UI --------
+        # CHAT UI 
         st.markdown("### 💬 Chat Interface")
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):

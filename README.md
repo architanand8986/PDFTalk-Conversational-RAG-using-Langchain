@@ -1,6 +1,7 @@
 # **Conversational RAG with PDF Uploads and Chat History**
 
 This repository implements a **Conversational Retrieval-Augmented Generation (RAG) model** with **PDF document uploads** and **chat history tracking** using **Streamlit** for the web interface. It enables users to interact with uploaded PDFs, retrieve context-aware responses, and maintain session-based chat history.
+Checkout the Deployed on by <a href = "https://pdftalk-conversational-rag-using-langchain-8pyyc7gkupynhn9znzl.streamlit.app/">Clicking here. </a>
 
 ## **Features**
 - Upload multiple **PDF documents**
@@ -72,6 +73,7 @@ streamlit run app.py
 - **Groq API (Gemma2-9B-It)** - Large language model for response generation
 
 ---
+
 
 ## **Contributing**
 Contributions are welcome! Feel free to open issues and pull requests.

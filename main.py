@@ -18,6 +18,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 
 # Setup API Keys
+
+# for .env setup
+# from dotenv import load_dotenv
+# load_dotenv()
+
+# os.environ['HF_TOKEN']=os.getenv("HF_TOKEN")
+# for deployment
 hf_token = st.secrets["HF_TOKEN"]
 os.environ["HF_TOKEN"] = hf_token
 
